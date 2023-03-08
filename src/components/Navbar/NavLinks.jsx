@@ -1,5 +1,9 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import ButtonFill from "../ButtonFill";
+import Toggler from "../Toggler";
+
+
 
 const NavLinks = () => {
   const links = [
@@ -16,12 +20,8 @@ const NavLinks = () => {
       link: "/how",
     },
     {
-      name: "Become a Rider",
-      link: "/rider",
-    },
-    {
-      name: "Become a Driver",
-      link: "/driver",
+      name: "Let's Start Ride",
+      link: "/start",
     },
     {
       name: "Contact",
@@ -30,15 +30,16 @@ const NavLinks = () => {
   ];
   return (
     <>
-      {links.map((link, i) => (
-        <ul key={i}>
-          <li key={i} className="font-semibold hover:text-primary">
-            <a href={link.link}>{link.name}</a>
-
-            {/* <Link to={link.link}>{link.name}</Link> */}
-          </li>
-        </ul>
-      ))}
+      {links.map((link, i) => {
+        return (
+          <ul key={i}>
+            <li key={i} className="font-semibold hover:text-primary">
+              <Link to={link.link}>{link.name}</Link>
+            </li>
+          </ul>
+        );
+      })}
+{/* <Toggler/> */}
     </>
   );
 };

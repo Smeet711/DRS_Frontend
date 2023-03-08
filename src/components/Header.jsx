@@ -5,7 +5,6 @@ import Icon1 from "../assets/icon-1.png";
 import Icon2 from "../assets/car.png";
 import Icon3 from "../assets/driver.png";
 import HeroSection from "./HeroSection";
-import Navbar from "./Navbar";
 const Header = () => {
   const Info = [
     {
@@ -27,32 +26,6 @@ const Header = () => {
   return (
     <section className="bg-Hero bg-cover bg-center  py-4 md:px-24 px-4">
       <Nav />
-
-{/* <Navbar/> */}
-
-
-      {/* <div className="flex md:flex-row flex-col gap-5 pt-20">
-        <div className="flex-1">
-          <h1
-            className="md:text-5xl text-4xl font-semibold tracking-wide md:leading-tight
-          leading-snug"
-          >
-            Be prepared for the mountains and beyond.
-          </h1>
-          <p className="text-gray-600 md:w-2/3 md:py-4 py-2 leading-relaxed">
-            Are you looking for amazing hiking travel? Don’t worry! We got it
-            for you!
-          </p>
-          <br />
-          <div className="flex md:gap-4 gap-2 flex-wrap">
-            <ButtonFill>Contact Us</ButtonFill>
-            <ButtonOutline />
-          </div>
-        </div>
-        <div className="flex-1  flex justify-center">
-          <img src={HeroImg} alt="hero" className="h-2/3" />
-        </div>
-      </div> */}
 
       <HeroSection />
 

@@ -6,6 +6,13 @@ import img3 from "./assets/welcome.png";
 import Companies from "./components/Companies";
 import Review from "./components/Review";
 import Footer from "./components/Footer/Footer";
+import HomePage from "./pages/HomePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DriverForm from "./components/DriverForm";
+import StartRide from "./pages/StartRide";
+import HeroSection from "./components/HeroSection";
+import ScrolltoTop from "./components/ScrolltoTop";
+
 const App = () => {
   const contents = [
     {
@@ -25,15 +32,15 @@ const App = () => {
     },
   ];
   return (
-    <div className="font-Poppins">
-      <Headers />
-      <Blog content={contents[0]} />
-      <Companies />
-      <Blog content={contents[1]} alternative={true} />
-      <Blog content={contents[2]} />
-      <Review />
-      <Footer />
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/start" element={<StartRide />} />
+        </Routes>
+      </BrowserRouter>
+      <ScrolltoTop />
+    </>
   );
 };
 

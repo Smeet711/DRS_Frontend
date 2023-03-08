@@ -1,8 +1,22 @@
 video {
-    object-fit: cover;
+    /* object-fit: cover;
+    width: 60vw; */
+
+    
     width: 60vw;
+    height: 50vh;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+  
+
   }
   
+  .herobtns{
+    margin-top: 32px;
+    display: grid;
+    place-items: center;
+  }
   
   
   .hero-container {
@@ -16,7 +30,7 @@ video {
     /* object-fit: contain; */
   }
   .hero-container > h1 {
-    color: #fff;
+    color: #333;
     
     font-size: 60px;
     font-weight: bold;
@@ -25,9 +39,10 @@ video {
   }
   
   .hero-container > p {
-    margin-top: 8px;
-    color: #fff;
-    font-size: 30px;
+    /* margin-top: 8px; */
+    padding-bottom: 8rem;
+    color: #333;
+    font-size: 35px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
   }  

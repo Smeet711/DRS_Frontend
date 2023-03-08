@@ -13,7 +13,7 @@ const Footer = () => {
       <NewsLetter />
       <div className="flex md:flex-row flex-col gap-20">
         <div className="flex-1">
-          <img src={Logo} alt="logo" className="h-12" />
+          <img src={"https://img.icons8.com/external-flaticons-flat-flat-icons/64/null/external-driving-vacation-planning-road-trip-flaticons-flat-flat-icons.png"} alt="logo" className="h-12" />
           <p className="md:w-1/2 leading-relaxed text-sm text-gray-600 pt-7">
             We envision a world where everyone feels welcome in the
             ridesharing community.

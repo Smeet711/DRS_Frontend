@@ -5,7 +5,7 @@ const Nav = () => {
   const [open, setOpen] = useState(false);
   return (
     <nav className="flex justify-between">
-      <img src={Logo} alt="logo" className="h-9 cursor-pointer" />
+      <img src={"https://img.icons8.com/external-flaticons-flat-flat-icons/64/null/external-driving-vacation-planning-road-trip-flaticons-flat-flat-icons.png"} alt="logo" className="h-9 cursor-pointer" />
       <ul className="md:flex hidden items-center gap-10">
         <NavLinks />
       </ul>
