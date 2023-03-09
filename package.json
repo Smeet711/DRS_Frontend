@@ -9,9 +9,12 @@
   },
   "dependencies": {
     "@anatoliygatt/dark-mode-toggle": "^1.0.1",
+    "@chakra-ui/react": "^2.5.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@react-google-maps/api": "^2.18.1",
     "clsx": "^1.2.1",
+    "framer-motion": "^10.2.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.8.0",

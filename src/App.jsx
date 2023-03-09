@@ -12,6 +12,7 @@ import DriverForm from "./components/DriverForm";
 import StartRide from "./pages/StartRide";
 import HeroSection from "./components/HeroSection";
 import ScrolltoTop from "./components/ScrolltoTop";
+import ServicesMap from "./pages/ServicesMap";
 
 const App = () => {
   const contents = [
@@ -37,6 +38,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/start" element={<StartRide />} />
+          <Route path="/services" element={<ServicesMap/>} />
         </Routes>
       </BrowserRouter>
       <ScrolltoTop />
