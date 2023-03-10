@@ -613,7 +613,7 @@ export declare interface DepOptimizationResult {
      * the page reload will be delayed until the next rerun so we need
      * to be able to discard the result
      */
-    commit: () => void;
+    commit: () => Promise<void>;
     cancel: () => void;
 }
 
@@ -1193,6 +1193,7 @@ export declare class ModuleNode {
     transformResult: TransformResult | null;
     ssrTransformResult: TransformResult | null;
     ssrModule: Record<string, any> | null;
+    ssrError: Error | null;
     lastHMRTimestamp: number;
     lastInvalidationTimestamp: number;
     constructor(url: string);
@@ -1309,6 +1310,15 @@ export declare interface Plugin extends Plugin_2 {
      */
     configureServer?: ServerHook;
     /**
+     * Configure the preview server. The hook receives the connect server and
+     * its underlying http server.
+     *
+     * The hooks are called before other middlewares are applied. A hook can
+     * return a post hook that will be called after other middlewares are
+     * applied. Hooks can be async functions and will be called in series.
+     */
+    configurePreviewServer?: PreviewServerHook;
+    /**
      * Transform index.html.
      * The hook receives the following arguments:
      *
@@ -1375,12 +1385,10 @@ export declare interface PluginContainer {
     close(): Promise<void>;
 }
 
-export declare type PluginOption = Plugin | false | null | undefined;
+export declare type PluginOption = Plugin | false | null | undefined | PluginOption[];
 
 /**
  * Starts the Vite server in preview mode, to simulate a production deployment
- * @param config - the resolved Vite config
- * @param serverOptions - what host and port to use
  * @experimental
  */
 export declare function preview(inlineConfig: InlineConfig): Promise<PreviewServer>;
@@ -1402,6 +1410,11 @@ export declare interface PreviewServer {
      */
     printUrls: () => void;
 }
+
+export declare type PreviewServerHook = (server: {
+    middlewares: Connect.Server;
+    httpServer: http.Server;
+}) => (() => void) | void | Promise<(() => void) | void>;
 
 /**
  * @deprecated Use `server.printUrls()` instead
@@ -1748,6 +1761,8 @@ export declare interface ServerOptions extends CommonServerOptions {
     fs?: FileSystemServeOptions;
     /**
      * Origin for the generated asset URLs.
+     *
+     * @example `http://127.0.0.1:8080`
      */
     origin?: string;
     /**
@@ -2031,7 +2046,7 @@ export declare interface UserConfig {
     /**
      * Array of vite plugins to use.
      */
-    plugins?: (PluginOption | PluginOption[])[];
+    plugins?: PluginOption[];
     /**
      * Configure resolver
      */
@@ -2119,7 +2134,7 @@ export declare interface UserConfig {
         /**
          * Vite plugins that apply to worker bundle
          */
-        plugins?: (PluginOption | PluginOption[])[];
+        plugins?: PluginOption[];
         /**
          * Rollup options to build worker bundle
          */
