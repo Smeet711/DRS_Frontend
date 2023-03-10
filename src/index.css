@@ -170,19 +170,7 @@ body {
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-  width: 15px;
-  height: 10px;
-}
 
-::-webkit-scrollbar-track { background: var(--white); }
-
-::-webkit-scrollbar-thumb {
-  background: hsla(219, 14%, 60%, 0.3);
-  border: 2px solid var(--white);
-}
-
-::-webkit-scrollbar-thumb:hover { background: hsla(219, 14%, 60%, 0.5); }
 
 
 
