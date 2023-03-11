@@ -8,6 +8,7 @@ const ServicesMap = () => {
     if (counter < 9) {
       setcounter(counter + 1);
     }
+    
   };
   const decr = () => {
     if (counter >= 2) {
