@@ -13,8 +13,12 @@ import StartRide from "./pages/StartRide";
 import HeroSection from "./components/HeroSection";
 import ScrolltoTop from "./components/ScrolltoTop";
 import ServicesMap from "./pages/ServicesMap";
-import RidesMap from "./pages/RidesMap";
+import RidesMap from "./pages/RidesAvailable";
 import SrctoDest from "./components/SrctoDest";
+import RideOwnerDetails from "./pages/RideOwnerDetails";
+import MapRender from "./pages/MapRender";
+import DriverMoreDetails from "./pages/DriverMoreDetails";
+import CotravellerDetails from "./pages/CotravellerDetails";
 
 const App = () => {
   const contents = [
@@ -40,8 +44,11 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/start" element={<StartRide />} />
-          <Route path="/services" element={<ServicesMap/>} />
-          <Route path="/ridesmap" element={<RidesMap/>}/>
+          <Route path="/services" element={<ServicesMap />} />
+          <Route path="/rideandownerdetails" element={<RideOwnerDetails />} />
+          <Route path="/map" element={<MapRender />} />
+          <Route path="/moredriverdetails" element={<DriverMoreDetails/>}/>
+          <Route path="/cotraveldetails" element={<CotravellerDetails/>}/>
         </Routes>
       </BrowserRouter>
       <ScrolltoTop />

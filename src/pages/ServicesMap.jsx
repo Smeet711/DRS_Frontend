@@ -2,10 +2,11 @@ import React, { useState } from "react";
 
 import Nav from "../components/Navbar/Nav";
 import { useNavigate } from "react-router-dom";
+import RidesAvailable from "./RidesAvailable";
 
 const ServicesMap = () => {
-  const [counter, setcounter] = useState(0);
-  const [ishown, setishown] = useState(false);
+  const [counter, setcounter] = useState(1);
+  const [rides, setrides] = useState(false);
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
 
@@ -18,6 +19,10 @@ const ServicesMap = () => {
     if (counter >= 2) {
       setcounter(counter - 1);
     }
+  };
+
+  const ridesShown = () => {
+    setrides(!rides);
   };
 
   return (
@@ -49,6 +54,7 @@ const ServicesMap = () => {
                   id="input-1"
                   className="input-field"
                   placeholder="From Where?"
+                  required
                 />
               </div>
 
@@ -63,6 +69,7 @@ const ServicesMap = () => {
                   id="input-2"
                   className="input-field"
                   placeholder="To Where?"
+                  required
                 />
               </div>
 
@@ -106,11 +113,7 @@ const ServicesMap = () => {
                 </div>
               </div>
 
-              <button
-                type="submit"
-                className="btn"
-                onClick={() => navigate("/ridesmap")}
-              >
+              <button type="submit" className="btn" onClick={ridesShown}>
                 Search
               </button>
             </form>
@@ -118,6 +121,7 @@ const ServicesMap = () => {
         </section>
 
         {/* // */}
+        {rides && <RidesAvailable /> }
 
         {/* // */}
       </section>
